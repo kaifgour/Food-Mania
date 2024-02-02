@@ -1,0 +1,31 @@
+{
+  "name": "salam-react",
+  "version": "1.0.0",
+  "description": "This is my react journey from scratch",
+  "scripts": {
+    "test": "jest",
+    "start":"parcel index.html",
+    "build":"parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaifgour/Salam-React.git"
+  },
+  "keywords": [],
+  "author": "Kaif Gour",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaifgour/Salam-React/issues"
+  },
+  "homepage": "https://github.com/kaifgour/Salam-React#readme",
+  "devDependencies": {
+    "parcel": "^2.11.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist":["last 3 versions"]
+  
+}
