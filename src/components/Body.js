@@ -1,10 +1,14 @@
 import RestroCard from "./RestroCard";
 import Shimmer from "./Shimmer";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 
 const Body = () => {
   const [listofrestro, setListofrestro] = useState([]);
+  const [filteredRestro, setfilteredRestro] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -12,19 +16,19 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.2083953&lng=72.8334541&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
 
     const json = await data.json();
     setListofrestro(
       json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
     );
-
-    console.log(
+    setfilteredRestro(
       json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
     );
   };
 
+  //conditional rendering-rendering based on condition
   if (listofrestro.length === 0) {
     return <Shimmer />;
   }
@@ -32,6 +36,27 @@ const Body = () => {
   return (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input
+            type="text"
+            className="search-box"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />
+          <button
+            onClick={() => {
+              const filteredRestro = listofrestro.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+
+              setfilteredRestro(filteredRestro);
+            }}
+          >
+            Search
+          </button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
@@ -43,8 +68,15 @@ const Body = () => {
         </button>
       </div>
       <div className="restaurant-list">
-        {listofrestro.map((restaurants) => {
-          return <RestroCard resData={restaurants} key={restaurants.info.id} />;
+        {filteredRestro.map((restaurants) => {
+          return (
+            <Link
+              key={restaurants.info.id}
+              to={"/restaurants/" + restaurants.info.id}
+            >
+              <RestroCard resData={restaurants} />
+            </Link>
+          );
         })}
       </div>
     </div>
