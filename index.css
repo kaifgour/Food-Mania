@@ -74,3 +74,13 @@ h2 {
 .search {
   margin-top: 10px;
 }
+
+.user-card {
+  border: 1px solid;
+  padding: 10px;
+  font-family: ui-monospace;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

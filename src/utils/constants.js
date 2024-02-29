@@ -5,4 +5,4 @@ export const LOGO_URL =
   "https://play-lh.googleusercontent.com/h_-TAvnkWhChVpd79kaZO0hqacftSzZ0-jCCYPvHSfdkbCpJSA-x6t3rfdpE9NxT5jf7=w600-h300-pc0xffffff-pd";
 
 export const MENU_API =
-  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.0759837&lng=72.8776559&restaurantId=";
+  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.2083953&lng=72.8334541&restaurantId=";

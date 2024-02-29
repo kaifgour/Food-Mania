@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { useEffect, useState } from "react";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [listofrestro, setListofrestro] = useState([]);
@@ -27,6 +28,12 @@ const Body = () => {
       json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
     );
   };
+
+  //check online status by using custom hooks
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus === false)
+    return <h1>You are offline,check your connection </h1>;
 
   //conditional rendering-rendering based on condition
   if (listofrestro.length === 0) {
