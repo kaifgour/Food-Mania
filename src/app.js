@@ -1,24 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
+import UserContext from "./utils/userContext";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestrauntMenu from "./components/RestrauntMenu";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 const Footer = () => {
   return <h4>Footer</h4>;
 };
 
 const AppLayout = () => {
+  const [userName, setuserName] = useState();
+
+  useEffect(() => {
+    const data = {
+      name: "Kaif Gour",
+    };
+    setuserName(data.name);
+  });
   return (
-    <>
-      <Header />
-      <Outlet />
-      <Footer />
-    </>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName }}>
+        <>
+          <Header />
+          <Outlet />
+          {/* <Footer /> */}
+        </>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
