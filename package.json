@@ -5,7 +5,6 @@
   "scripts": {
     "test": "jest",
     "start": "parcel index.html",
-    "build": "parcel build index.html",
     "tailwind": "postcss css/tailwind.css -o public/build/tailwind.css"
   },
   "repository": {
