@@ -6,7 +6,9 @@
     "test": "jest",
     "start": "parcel index.html",
     "build": "parcel build index.html",
-    "tailwind": "postcss css/tailwind.css -o public/build/tailwind.css"
+    "tailwind": "postcss css/tailwind.css -o public/build/tailwind.css",
+    "tailwind1": "npx tailwindcss -i ./src/input.css -o ./build/css/style.css --watch",
+    "build-prod": "parcel build index.html --dist-dir build"
   },
   "repository": {
     "type": "git",
