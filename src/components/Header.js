@@ -18,26 +18,26 @@ const Header = () => {
   return (
     <div className="flex bg-yellow-500 justify-between p-2 shadow-md mb-2">
       <a href="/">
-        <img className="w-44" alt="logo" src={LOGO_URL}></img>
+        <img className="w-44 md:flex" alt="logo" src={LOGO_URL}></img>
       </a>
       <div className="flex items-center">
         <ul className="flex p-5 m-3">
           <li className="px-5 py-1 hover:border-yellow-500 hover:rounded-md hover:text-yellow-500 hover:bg-black">
             <Link to="/">Home</Link>
           </li>
-          <li className="px-5 py-1 hover:border-yellow-500 hover:rounded-md hover:text-yellow-500 hover:bg-black">
+          {/* <li className="px-5 py-1 hover:border-yellow-500 hover:rounded-md hover:text-yellow-500 hover:bg-black">
             <Link to="/about">About</Link>
           </li>
           <li className="px-5 py-1 hover:border-yellow-500 hover:rounded-md hover:text-yellow-500 hover:bg-black">
             <Link to="/contact">Contacts</Link>
-          </li>
-          <li className="px-5 py-1 hover:border-yellow-500 hover:rounded-md hover:text-yellow-500 hover:bg-black font-bold text-xl">
-            Cart({cartItem.length})
+          </li> */}
+          <li className="px-5 py-1 hover:border-yellow-500 hover:rounded-md hover:text-yellow-500 hover:bg-black ">
+            <Link to="/cart">Cart({cartItem.length})</Link>
           </li>
           <li className="px-5 py-1 hover:border-yellow-500 hover:rounded-md hover:text-yellow-500 hover:bg-black">
             {data.loggedInUser}
           </li>
-          <li className="px-5 py-1 hover:border-yellow-500 hover:rounded-md hover:text-yellow-500 hover:bg-black">
+          {/* <li className="px-5 py-1 hover:border-yellow-500 hover:rounded-md hover:text-yellow-500 hover:bg-black">
             <button
               onClick={() => {
                 buttonValue === "Login"
@@ -48,7 +48,7 @@ const Header = () => {
             >
               Login
             </button>
-          </li>
+          </li> */}
           <li className="px-5 py-1 hover:border-yellow-500 hover:rounded-md hover:text-yellow-500 hover:bg-black">
             {status ? (
               <span>Online &#9989;</span>

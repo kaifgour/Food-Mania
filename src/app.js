@@ -10,17 +10,15 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestrauntMenu from "./components/RestrauntMenu";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
-
-const Footer = () => {
-  return <h4>Footer</h4>;
-};
+import Cart from "./components/Cart";
+import Footer from "./components/Footer";
 
 const AppLayout = () => {
   const [userName, setuserName] = useState();
 
   useEffect(() => {
     const data = {
-      name: "Kaif Gour",
+      name: "Default User",
     };
     setuserName(data.name);
   });
@@ -30,7 +28,7 @@ const AppLayout = () => {
         <>
           <Header />
           <Outlet />
-          {/* <Footer /> */}
+          <Footer />
         </>
       </UserContext.Provider>
     </Provider>
@@ -53,6 +51,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/restaurants/:resId",

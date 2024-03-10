@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/kaifgour/Salam-React#readme",
   "devDependencies": {
-    "parcel": "^2.11.0",
+    "parcel": "^2.12.0",
     "postcss": "^8.4.35",
     "process": "^0.11.10",
     "tailwindcss": "^3.4.1"
