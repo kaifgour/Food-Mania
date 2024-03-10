@@ -4,7 +4,8 @@
   "description": "This is my react journey from scratch",
   "scripts": {
     "test": "jest",
-    "start": "parcel index.html",
+    "start": "npm run start",
+    "build": "npm run build",
     "tailwind": "postcss css/tailwind.css -o public/build/tailwind.css"
   },
   "repository": {
